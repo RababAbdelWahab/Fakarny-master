@@ -277,14 +277,14 @@ public class addface3 extends AppCompatActivity {
             }
         }
 
-    }
+    }/*
     @Override
     public void onBackPressed(){
 
 
         Toast.makeText(getBaseContext(), "You must add another face", Toast.LENGTH_LONG)  .show();
 
-    }
+    }*/
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (requestCode == 0) {
@@ -311,72 +311,77 @@ public class addface3 extends AppCompatActivity {
 
         return Bitmap.createScaledBitmap(image, width, height, true);
     }
-    public  void addFaceToCV(final int user_id , final int person_id){
+    public  void addFaceToCV(final int user_id , final int person_id) {
 
         Map<String, String> jsonParams = new HashMap<String, String>();
-        jsonParams.put("user_id",Integer.toString(user_id));
+        jsonParams.put("user_id", Integer.toString(user_id));
         jsonParams.put("name", String.valueOf(person_id));
         // lw bitmap b null ytl3 error
-        if(bitmap == null ) jsonParams.put("images","no image");
-        else jsonParams.put("image", BitMapToString(bitmap));
-        int time_out = 240000;
-        String url = "http://192.168.43.176:5000/CV/add";
+        if (bitmap == null) {
 
-        RequestQueue requestQueue= Volley.newRequestQueue(getApplicationContext());
-        JsonObjectRequest
-                jsonObjectRequest
-                = new JsonObjectRequest(
-                Request.Method.POST,
-                url,
+            Toast.makeText(getBaseContext(),
+                    "Please add image ", Toast.LENGTH_SHORT).show();
+        } else {
+            jsonParams.put("image", BitMapToString(bitmap));
+            int time_out = 240000;
+            String url = "http://192.168.43.176:5000/CV/add";
+
+            RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+            JsonObjectRequest
+                    jsonObjectRequest
+                    = new JsonObjectRequest(
+                    Request.Method.POST,
+                    url,
 //                        (String) null,
-                new JSONObject(jsonParams),
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        String result = null;
-                        try {
-                            result= response.getString("status");
-                            if(result.equals("success")){
-                                Intent intent = new Intent(addface3.this, HomeActivity.class);
-                                intent.putExtra("user_id",user_id);
-                                startActivity(intent);
-                                Toast.makeText(getBaseContext(),
-                                        "success", Toast.LENGTH_SHORT)  .show();
-                            }
-                            else {
+                    new JSONObject(jsonParams),
+                    new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            String result = null;
+                            try {
+                                result = response.getString("status");
+                                if (result.equals("success")) {
 
-                                Toast.makeText(getBaseContext(),
-                                        "No Face is Detected ", Toast.LENGTH_SHORT)  .show();
+                                    Toast.makeText(getBaseContext(),
+                                            "success", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(addface3.this, HomeActivity.class);
+                                    intent.putExtra("user_id", user_id);
+                                    intent.putExtra("person_id", person_id);
+                                    startActivity(intent);
+                                } else {
+
+                                    Toast.makeText(getBaseContext(),
+                                            "No Face is Detected ", Toast.LENGTH_SHORT).show();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                            Log.d("rababresp", response.toString());
                         }
-                        Log.d("rababresp", response.toString());
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                //              Log.d("st code", String.valueOf(error.networkResponse.statusCode));
-                Object e = null;
-                Log.d("TimeoutError: " , String.valueOf(e instanceof TimeoutError));
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    //              Log.d("st code", String.valueOf(error.networkResponse.statusCode));
+                    Object e = null;
+                    Log.d("TimeoutError: ", String.valueOf(e instanceof TimeoutError));
 
-                Log.d( "NoConnectionError: " , String.valueOf(e instanceof NoConnectionError));
-                Log.d("NetworkError: " , String.valueOf(e instanceof NetworkError));
-                Log.d( "AuthFailureError: " , String.valueOf(e instanceof AuthFailureError));
-                Log.d( "ServerError: " , String.valueOf(e instanceof ServerError));
+                    Log.d("NoConnectionError: ", String.valueOf(e instanceof NoConnectionError));
+                    Log.d("NetworkError: ", String.valueOf(e instanceof NetworkError));
+                    Log.d("AuthFailureError: ", String.valueOf(e instanceof AuthFailureError));
+                    Log.d("ServerError: ", String.valueOf(e instanceof ServerError));
 
-                Toast.makeText(getBaseContext(),
-                        "Error", Toast.LENGTH_SHORT)  .show();
-                VolleyLog.DEBUG=true;
-                VolleyLog.e("rababresp", error.getMessage());
-            }
+                    Toast.makeText(getBaseContext(),
+                            "Error", Toast.LENGTH_SHORT).show();
+                    VolleyLog.DEBUG = true;
+                    VolleyLog.e("rababresp", error.getMessage());
+                }
 
-        });
-        RetryPolicy policy = new DefaultRetryPolicy(time_out, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
-        jsonObjectRequest.setRetryPolicy(policy);
-        requestQueue.add(jsonObjectRequest);
+            });
+            RetryPolicy policy = new DefaultRetryPolicy(time_out, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT);
+            jsonObjectRequest.setRetryPolicy(policy);
+            requestQueue.add(jsonObjectRequest);
 
 
-
+        }
     }
 }
