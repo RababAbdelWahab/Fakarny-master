@@ -1,6 +1,7 @@
 package com.javapapers.android.introslider;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -14,6 +15,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.StrictMode;
 import android.provider.MediaStore;
+import android.service.autofill.ImageTransformation;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -48,6 +50,7 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -74,7 +77,7 @@ public class AddFacesActivity extends AppCompatActivity {
         profilePicture =(ImageView)  findViewById(R.id.profile_picture);
 
 
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         if(bundle!=null){
             user_id=bundle.getInt("user_id");
@@ -88,7 +91,22 @@ public class AddFacesActivity extends AppCompatActivity {
         addFaces.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addFace();
+               // addFace();
+                Log.d("bitmap", String.valueOf(bitmap));
+                Log.d("name", textInputname.getText().toString());
+                Log.d("phone",textInputphone.getText().toString());
+                String name=textInputname.getText().toString();
+                String phone=textInputphone.getText().toString();
+                String des= textInputDescription.getText().toString();
+                String relation= textInputRelation.getText().toString();
+                Intent intent1 = new Intent(AddFacesActivity.this, addface2.class);
+                intent1.putExtra("user_id",user_id);
+                intent1.putExtra("bitmap1", saveBitmap(bitmap));
+                intent1.putExtra("name",name);
+                intent1.putExtra("phone", phone);
+                intent1.putExtra("relation", relation);
+                intent1.putExtra("des", des);
+                startActivity(intent1);
 
 
 
@@ -108,7 +126,21 @@ public class AddFacesActivity extends AppCompatActivity {
         });
 
     }
-
+    public String saveBitmap(Bitmap bitmap) {
+        String fileName = "bitmap1";//no .png or .jpg needed
+        try {
+            ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+            FileOutputStream fo = openFileOutput(fileName, Context.MODE_PRIVATE);
+            fo.write(bytes.toByteArray());
+            // remember close file output
+            fo.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            fileName = null;
+        }
+        return fileName;
+    }
 
     private void startDialog() {
         AlertDialog.Builder myAlertDialog = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
@@ -297,7 +329,7 @@ public class AddFacesActivity extends AppCompatActivity {
 
         return Bitmap.createScaledBitmap(image, width, height, true);
     }
-
+/*
     public  void addFaceToCV(final int user_id , final int person_id){
 
         Map<String, String> jsonParams = new HashMap<String, String>();
@@ -368,13 +400,7 @@ public class AddFacesActivity extends AppCompatActivity {
 
 
     }
-    @Override
-    public void onBackPressed(){
-
-
-        Toast.makeText(getBaseContext(), "You must add another face", Toast.LENGTH_LONG)  .show();
-
-    }
+    */
 
     public  void addFace(){
         Map<String, String> jsonParams = new HashMap<String, String>();
@@ -405,7 +431,7 @@ public class AddFacesActivity extends AppCompatActivity {
                                     result = response.getString("status");
                                     if(result.equals("success")){
                                         person_id= response.getInt("person_id");
-                                         addFaceToCV(user_id,person_id);
+                                       //  addFaceToCV(user_id,person_id);
                                     }
                                 } catch (JSONException e) {
                                     e.printStackTrace();

@@ -37,7 +37,8 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".addface3"/>
+        <activity android:name=".facess"></activity>
+        <activity android:name=".addface3" />
         <activity android:name=".addface2" />
 
         <receiver

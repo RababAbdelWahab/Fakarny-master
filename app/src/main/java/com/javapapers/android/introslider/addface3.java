@@ -1,6 +1,7 @@
 package com.javapapers.android.introslider;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -46,6 +47,8 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -56,10 +59,10 @@ public class addface3 extends AppCompatActivity {
     protected static final int CAMERA_REQUEST = 0;
     protected static final int GALLERY_PICTURE = 1;
     private Intent pictureActionIntent = null;
-    Bitmap bitmap;
+    Bitmap bitmap, bitmap1, bitmap2;
     int user_id;
     TextView txt_image_path;
-    String selectedImagePath;
+    String selectedImagePath , name , phone ,relation,des;
     Button addFaces;
     int person_id;
 
@@ -73,14 +76,42 @@ public class addface3 extends AppCompatActivity {
         Bundle bundle = intent.getExtras();
         if(bundle!=null){
             user_id=bundle.getInt("user_id");
-            person_id = bundle.getInt("person_id");
+
+            try {
+                bitmap1 = BitmapFactory.decodeStream(openFileInput("bitmap1"));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            try {
+                bitmap2 = BitmapFactory.decodeStream(openFileInput("bitmap2"));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            name= bundle.getString("name");
+            relation= bundle.getString("relation");
+            des= bundle.getString("des");
+            phone = bundle.getString("phone");
+
+
         }
         addFaces = (Button) findViewById(R.id.Add_face3);
         addFaces.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                addFaceToCV(user_id,person_id);
+              //  addFaceToCV(user_id,person_id);
+
+                Intent intent1 = new Intent(addface3.this, facess.class);
+                intent1.putExtra("user_id",user_id);
+                intent1.putExtra("bitmap1", saveBitmap(bitmap1));
+                intent1.putExtra("bitmap2", saveBitmap(bitmap2));
+                intent1.putExtra("bitmap3", saveBitmap(bitmap));
+                intent1.putExtra("name", name);
+                intent1.putExtra("phone",phone);
+                intent1.putExtra("relation", relation);
+                intent1.putExtra("des", des);
+                startActivity(intent1);
 
 
             }
@@ -100,7 +131,21 @@ public class addface3 extends AppCompatActivity {
 
     }
 
-
+    public String saveBitmap(Bitmap bitmap) {
+        String fileName = "bitmap3";//no .png or .jpg needed
+        try {
+            ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+            FileOutputStream fo = openFileOutput(fileName, Context.MODE_PRIVATE);
+            fo.write(bytes.toByteArray());
+            // remember close file output
+            fo.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+            fileName = null;
+        }
+        return fileName;
+    }
     private void startDialog() {
         AlertDialog.Builder myAlertDialog = new AlertDialog.Builder(this, R.style.AlertDialogTheme);
         myAlertDialog.setTitle("Upload Picture Option");
@@ -277,14 +322,14 @@ public class addface3 extends AppCompatActivity {
             }
         }
 
-    }
+    }/*
     @Override
     public void onBackPressed(){
 
 
         Toast.makeText(getBaseContext(), "You must add another face", Toast.LENGTH_LONG)  .show();
 
-    }
+    }*/
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         if (requestCode == 0) {
@@ -311,6 +356,7 @@ public class addface3 extends AppCompatActivity {
 
         return Bitmap.createScaledBitmap(image, width, height, true);
     }
+
     public  void addFaceToCV(final int user_id , final int person_id){
 
         Map<String, String> jsonParams = new HashMap<String, String>();
