@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/radius"
+    android:layout_margin="20dp"
+
+    android:layout_height="wrap_content">
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="15dp"
+        android:orientation="vertical"
+
+        android:layout_centerHorizontal="true"
+        android:padding="5dp">
+
+        <android.support.design.card.MaterialCardView
+            android:id="@+id/event_time"
+
+            android:layout_width="wrap_content"
+            android:layout_height="68dp"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+
+            >
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical"
+
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/light_main_color"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:textAlignment="gravity">
+
+                    <TextView
+                        android:id="@+id/time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:text="09:00"
+                        android:textColor="@color/main_color"
+                        android:textFontWeight="bold"
+                        android:textSize="25sp"
+                        app:layout_constraintLeft_toLeftOf="parent" />
+
+                    <TextView
+                        android:id="@+id/time2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:layout_alignRight="@id/date"
+                        android:text=" AM "
+                        android:textColor="@color/main_color"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+            </FrameLayout>
+
+
+        </android.support.design.card.MaterialCardView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/event"
+            android:layout_width="196dp"
+            android:layout_height="31dp"
+            android:layout_marginStart="171dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="160dp"
+            android:autoSizeMaxTextSize="20sp"
+            android:autoSizeMinTextSize="12sp"
+            android:autoSizeTextType="uniform"
+            android:singleLine="true"
+            android:text="GP Discussion" />
+
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="202dp"
+            android:layout_height="34dp"
+            android:layout_alignStart="@id/event"
+            android:layout_alignLeft="@id/event"
+            android:layout_alignBottom="@id/event"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="168dp"
+            android:layout_marginLeft="168dp"
+            android:layout_marginTop="38dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="-45dp"
+            android:autoSizeMaxTextSize="20sp"
+            android:autoSizeMinTextSize="12sp"
+            android:autoSizeTextType="uniform"
+            android:singleLine="true"
+            android:text="10 July 2019"
+            tools:ignore="NotSibling" />
+
+        <TextView
+            android:id="@+id/place"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:layout_alignStart="@id/event"
+            android:layout_alignLeft="@id/time"
+            android:layout_alignBottom="@id/time"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginBottom="-51dp"
+            android:text="Cairo Uni"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="12sp"
+            android:autoSizeMaxTextSize="20sp"
+            android:singleLine="true"
+            android:textSize="18sp"
+            tools:ignore="NotSibling" />
+
+
+
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:visibility="invisible"
+        android:layout_gravity="bottom|end"
+        android:layout_marginStart="0dp"
+        android:background="@color/main_color"
+        android:src="@drawable/ic_check"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        app:backgroundTint="@android:color/white" />
+</FrameLayout>
+
+
+</android.support.design.card.MaterialCardView>

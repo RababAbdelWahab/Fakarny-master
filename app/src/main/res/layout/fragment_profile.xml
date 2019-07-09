@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:id="@+id/profile_id"
+    android:animateLayoutChanges="true"
+    android:textAlignment="center"
+    android:layout_width="fill_parent">
+
+    <ScrollView
+        android:id="@+id/scrollview2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:overScrollMode="never">
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_height="wrap_content"
+            tools:context=".ProfileActivity"
+            android:gravity="center"
+            android:id="@+id/profile_id2"
+            android:padding="50dp"
+            android:animateLayoutChanges="true"
+            android:textAlignment="center"
+            android:layout_width="match_parent">
+
+            <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/profile_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="5dp"
+                android:layout_x="0dp"
+                android:layout_y="0dp"
+                android:padding="25dp"
+                android:textAlignment="center"
+                card_view:cardBackgroundColor="@android:color/transparent"
+                card_view:cardCornerRadius="0dp"
+                card_view:cardElevation="0dp"
+                card_view:contentPadding="0dp"
+                tools:ignore="MissingConstraints">
+
+
+                <!-- Main Content View -->
+                <AbsoluteLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="363dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/radius_profile"
+                    android:padding="2dp"
+                    android:textAlignment="center">
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_x="10dp"
+                        android:layout_y="115dp"
+                        android:autoSizeMaxTextSize="20sp"
+                        android:autoSizeMinTextSize="12sp"
+                        android:autoSizeTextType="uniform"
+                        android:drawableLeft="@drawable/ic_person_white"
+                        android:padding="5dp"
+                        android:singleLine="true"
+                        android:text="   Mark "
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:id="@+id/phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_x="12dp"
+                        android:layout_y="162dp"
+                        android:drawableLeft="@drawable/ic_local_phone_black_24dp"
+                        android:padding="7dp"
+                        android:text="   +4026298259"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:autoSizeTextType="uniform"
+                        android:autoSizeMinTextSize="12sp"
+                        android:autoSizeMaxTextSize="20sp"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_x="13dp"
+                        android:layout_y="213dp"
+                        android:drawableLeft="@drawable/ic_email_black_24dp"
+                        android:padding="7dp"
+                        android:text="   mark@yahoo.com"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:autoSizeTextType="uniform"
+                        android:autoSizeMinTextSize="12sp"
+                        android:autoSizeMaxTextSize="20sp"
+                        android:singleLine="true" />
+
+                    <TextView
+                        android:id="@+id/address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_x="13dp"
+                        android:layout_y="256dp"
+                        android:drawableLeft="@drawable/ic_location_on_black_24dp"
+                        android:padding="7dp"
+                        android:text="   Los Anglos"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:autoSizeTextType="uniform"
+                        android:autoSizeMinTextSize="12sp"
+                        android:autoSizeMaxTextSize="20sp"
+                        android:singleLine="true"
+
+                        />
+                </AbsoluteLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:elevation="8dp"
+                android:id="@+id/avatar"
+                android:layout_centerHorizontal="true"
+                android:foregroundGravity="center"
+                android:src="@drawable/person"
+                android:textAlignment="center"
+                app:civ_border_color="#FFFFFF"
+                app:civ_border_width="7dp"
+
+                />
+
+
+
+
+        </RelativeLayout>    </ScrollView>
+
+</RelativeLayout>

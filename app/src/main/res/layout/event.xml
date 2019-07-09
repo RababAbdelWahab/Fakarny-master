@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <ScrollView
+        android:id="@+id/scrollview2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:overScrollMode="never">
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/event_id"
+            android:padding="50dp"
+            android:animateLayoutChanges="true"
+            android:textAlignment="center"
+            android:layout_width="match_parent">
+
+            <android.support.v7.widget.CardView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:id="@+id/event_card"
+                android:layout_x="0dp"
+                android:layout_y="0dp"
+                android:padding="5dp"
+                android:layout_marginTop="30dp"
+                android:textAlignment="center"
+                card_view:cardBackgroundColor="@android:color/transparent"
+                card_view:cardCornerRadius="0dp"
+                card_view:cardElevation="0dp"
+                card_view:contentPadding="0dp"
+                tools:ignore="MissingConstraints">
+
+
+                <!-- Main Content View -->
+                <AbsoluteLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/even_rad"
+                    android:padding="20dp"
+                    android:textAlignment="center">
+
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_x="-3dp"
+                        android:layout_y="30dp"
+                        android:gravity=""
+                        android:padding="5dp"
+                        android:text="   Graduation Project Discussion"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textFontWeight="bold"
+                        android:textSize="30sp" />
+
+                    <TextView
+                        android:id="@+id/phone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_x="-1dp"
+                        android:layout_y="116dp"
+                        android:padding="7dp"
+                        android:gravity="center"
+                        android:text="   in Cairo University"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="23sp" />
+
+                    <TextView
+                        android:id="@+id/email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_x="-2dp"
+                        android:layout_y="157dp"
+                        android:padding="7dp"
+                        android:text="   at 10 July 2019 "
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="23sp" />
+
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_x="-1dp"
+                        android:layout_y="211dp"
+                        android:padding="7dp"
+                        android:text="   at 09:00 a.m"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="23sp" />
+
+                    <TextView
+                        android:id="@+id/address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_x="-4dp"
+                        android:layout_y="266dp"
+                        android:gravity="left"
+                        android:padding="7dp"
+                        android:text="   at that day cmp 2019 will discuss their graduation project  "
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+
+                        />
+                </AbsoluteLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+
+
+
+
+        </RelativeLayout>    </ScrollView>
+
+</RelativeLayout>

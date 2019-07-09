@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:id="@+id/scrollview2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:overScrollMode="never">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/event_id"
+                android:padding="50dp"
+                android:animateLayoutChanges="true"
+                android:textAlignment="center"
+                android:layout_width="match_parent">
+
+                <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:id="@+id/event_card"
+                    android:layout_width="331dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="30dp"
+                    android:layout_x="0dp"
+                    android:layout_y="0dp"
+                    android:padding="20dp"
+                    android:textAlignment="center"
+                    card_view:cardBackgroundColor="@android:color/transparent"
+                    card_view:cardCornerRadius="0dp"
+                    card_view:cardElevation="0dp"
+                    card_view:contentPadding="0dp"
+                    tools:ignore="MissingConstraints">
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/edev"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_gravity="left|bottom"
+                        android:layout_x="-8dp"
+                        android:layout_y="-23dp"
+                        android:background="@color/main_color"
+                        android:src="@drawable/ic_minus_in_circle"
+                        app:backgroundTint="@android:color/white" />
+
+                    <!-- Main Content View -->
+                    <AbsoluteLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="434dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="30dp"
+                        android:background="@drawable/even_rad"
+                        android:padding="20dp"
+                        android:textAlignment="center">
+
+
+                        <TextView
+                            android:id="@+id/name"
+                            android:layout_width="match_parent"
+                            android:layout_height="51dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_x="-1dp"
+                            android:layout_y="37dp"
+                            android:autoSizeMaxTextSize="30sp"
+                            android:autoSizeMinTextSize="12sp"
+                            android:autoSizeTextType="uniform"
+
+                            android:gravity="left"
+                            android:padding="5dp"
+                            android:text="   Graduation Project Discussion"
+
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textFontWeight="bold" />
+
+                        <TextView
+                            android:id="@+id/place"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_x="-2dp"
+                            android:layout_y="110dp"
+                            android:autoSizeMaxTextSize="22sp"
+                            android:autoSizeMinTextSize="12sp"
+                            android:autoSizeTextType="uniform"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="   in Cairo University"
+                            android:textAlignment="center"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:id="@+id/date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_x="-10dp"
+                            android:layout_y="166dp"
+                            android:autoSizeMaxTextSize="20sp"
+                            android:autoSizeMinTextSize="12sp"
+                            android:autoSizeTextType="uniform"
+                            android:padding="5dp"
+                            android:text="   at 10 July 2019 "
+                            android:textAlignment="center"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:id="@+id/time"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_x="-9dp"
+                            android:layout_y="223dp"
+                            android:padding="7dp"
+                            android:text="   at 09:00 a.m"
+                            android:textAlignment="center"
+                            android:autoSizeTextType="uniform"
+                            android:autoSizeMinTextSize="12sp"
+                            android:autoSizeMaxTextSize="20sp"
+                            android:textColor="@color/white"
+                             />
+
+                        <TextView
+                            android:id="@+id/summary"
+                            android:layout_width="match_parent"
+                            android:layout_height="85dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:layout_x="-11dp"
+                            android:layout_y="268dp"
+                            android:autoSizeMaxTextSize="20sp"
+                            android:autoSizeMinTextSize="12sp"
+                            android:autoSizeTextType="uniform"
+                            android:gravity="left"
+                            android:padding="5dp"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+
+
+                            />
+
+
+                    </AbsoluteLayout>
+
+                </android.support.v7.widget.CardView>
+
+
+
+
+
+
+            </RelativeLayout>
+
+        </FrameLayout>
+            </ScrollView>
+
+</RelativeLayout>

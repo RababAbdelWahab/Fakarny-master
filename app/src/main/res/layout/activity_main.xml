@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/logo2"
+        android:layout_weight="0.37"
+        android:layout_marginTop="38dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:background="@layout/rounded_borders"
+        android:hint="Email"
+        android:textColorHint="@color/main_color"
+        android:textColor="@color/main_color"
+        android:paddingBottom="@dimen/field_padding_zero"
+        android:paddingRight="@dimen/field_padding_zero"
+        android:paddingTop="@dimen/field_padding_zero"
+        android:paddingLeft="60dp"
+         android:inputType="textEmailAddress"
+        android:layout_below="@+id/imageView2"
+        android:layout_centerHorizontal="true"
+        />
+
+    <EditText
+        android:id="@+id/password"
+        android:textColorHint="@color/main_color"
+        android:textColor="@color/main_color"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/field_height"
+        android:ems="10"
+        android:background="@layout/rounded_borders"
+        android:hint="Password"
+        android:paddingBottom="@dimen/field_padding_zero"
+        android:paddingRight="@dimen/field_padding_zero"
+        android:paddingTop="@dimen/field_padding_zero"
+        android:paddingLeft="60dp"
+        android:inputType="textPassword"
+        android:layout_below="@+id/email"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/field_height"
+        android:layout_marginTop="15dp"
+        android:text="@string/login"
+        android:textColor="@android:color/white"
+        android:background="@layout/rounded_borders_button"
+        android:layout_below="@+id/password"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/createanaccounr"
+         android:layout_width="wrap_content"
+        android:layout_height="@dimen/field_height"
+        android:text="@string/createanaccounr"
+        android:background="@null"
+        android:textColor="@color/main_color"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/login"/>
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="25dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/mail"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="11dp"
+        android:layout_alignBottom="@+id/email" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="25dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/login"
+        android:layout_marginBottom="-2dp"
+        android:layout_alignStart="@+id/imageView5"
+        app:srcCompat="@drawable/password" />
+
+</RelativeLayout>
+

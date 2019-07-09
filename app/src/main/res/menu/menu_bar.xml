@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/menu_bar"
+    android:background="@color/white"
+
+    >
+
+<item
+    android:id="@+id/trusted_members"
+    android:icon="@drawable/ic_group_black_24dp"
+    android:title="@string/trusted_members"
+    android:orderInCategory="1"
+    android:textColor="@color/colorPrimary"
+
+    />
+<item
+    android:id="@+id/settings"
+    android:icon="@drawable/ic_settings_black_24dp"
+    android:title="@string/settings"
+    android:orderInCategory="2"
+    android:textColor="@color/colorPrimary"
+
+    />
+<item
+    android:id="@+id/logout"
+    android:icon="@drawable/ic_iconfinder_exit_2676937"
+    android:title="@string/logout"
+    android:orderInCategory="3"
+    android:textColor="@color/colorPrimary"
+
+    />
+
+</menu>
